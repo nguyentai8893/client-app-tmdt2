@@ -1,0 +1,132 @@
+.container {
+	width: 70%;
+	height: auto;
+	margin: auto;
+	background-color: #fff;
+	.banner-shop {
+		width: 100%;
+		height: 8rem;
+		background-color: #f6f9f6;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		:first-child {
+			font-weight: 400;
+
+			font-size: 2rem;
+		}
+		:nth-child(2) {
+			color: #aaa;
+		}
+	}
+	.content {
+		padding-top: 2rem;
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		grid-gap: 1rem;
+		height: 1000px;
+	}
+	.navbar {
+		width: 100%;
+		h4 {
+			font-weight: 500;
+			padding-bottom: 2rem;
+		}
+		.navbar-title {
+			width: 100%;
+			height: 2rem;
+			background-color: #000;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			h5 {
+				margin-left: 1.7rem;
+				font-weight: 400;
+			}
+		}
+		.title {
+			width: 100%;
+			height: 2rem;
+			background-color: #f6f9f6;
+			color: #000;
+			display: flex;
+			align-items: center;
+			h5 {
+				margin-left: 1.7rem;
+				font-weight: 400;
+			}
+		}
+		p {
+			font-size: 0.8rem;
+			color: #aaa;
+			padding: 0.3rem 0;
+			margin-left: 1.7rem;
+		}
+	}
+	.product-container {
+		.search-product {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.search-input {
+				width: 32.2%;
+				height: 2rem;
+				outline: none;
+				padding: 0.5rem 2rem;
+				caret-color: red;
+				border: 0.5px solid #aaa;
+			}
+			.select {
+				outline: none;
+			}
+		}
+		.product {
+			position: relative;
+			padding-top: 2rem;
+			width: 100%;
+			height: auto;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 1rem;
+			.next-page {
+				width: 8rem;
+				height: 3rem;
+				position: absolute;
+				right: 0%;
+				bottom: -7%;
+				transform: translate(0%, 0%);
+				button {
+					width: 1.8rem;
+					height: 1.6rem;
+					background-color: transparent;
+					border: 0.2px solid #aaa;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				p {
+					display: flex;
+					width: 1.8rem;
+					height: 1.6rem;
+					align-items: center;
+					justify-content: center;
+					color: #fff;
+					background-color: #000;
+				}
+				.show {
+					font-size: 0.7rem;
+					color: #aaa;
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					padding-top: 0.6rem;
+				}
+				.page {
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+.container {
+	width: 100%;
+	height: 25rem;
+	overflow: hidden;
+	.name-price {
+		text-align: center;
+		width: 80%;
+		height: 50%;
+		margin: auto;
+		.price {
+			font-size: 0.7rem;
+			color: #aaa;
+		}
+	}
+	img {
+		width: 100%;
+		height: 80%;
+		object-fit: cover;
+		animation: show 1s ease-in;
+	}
+
+	@keyframes show {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}

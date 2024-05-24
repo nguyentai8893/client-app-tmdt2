@@ -1,0 +1,23 @@
+.modal {
+	z-index: 99;
+	width: 44rem;
+	height: auto;
+	background-color: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.modal-mess {
+	z-index: 99;
+	width: 24rem;
+	height: 24rem;
+	position: fixed;
+	top: 35%;
+	right: 0%;
+	transform: translate(-30%, -50%);
+	background-color: rgba(252, 249, 249, 0.7);
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.3s ease-in-out;
+}

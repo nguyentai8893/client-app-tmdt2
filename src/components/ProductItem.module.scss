@@ -1,0 +1,22 @@
+.container {
+	height: auto;
+	img {
+		width: 100%;
+		object-fit: cover;
+		transition: opacity 0.3s ease;
+		&:hover {
+			opacity: 0.7;
+			cursor: pointer;
+		}
+	}
+	.wraper {
+		text-align: center;
+		font-style: italic;
+		.name-product {
+			font-size: 1.2rem;
+		}
+		.price-product {
+			color: #aaa;
+		}
+	}
+}
