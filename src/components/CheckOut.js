@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useAxios from '../hook/useAxios';
 
 const cx = classNames.bind(styles);
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const CheckOut = () => {
 	const productcart = useSelector((state) => state.product.productCart);
 	const products = useSelector((state) => state.product.products);
@@ -72,7 +72,7 @@ const CheckOut = () => {
 
 			// Nếu số lượng sản phẩm đủ trong kho, thực hiện đặt hàng
 			const res = await apiRequest(
-				'http://localhost:8000/api/order-product',
+				`${apiUrl}/api/order-product`,
 				'post',
 				orderData
 			);

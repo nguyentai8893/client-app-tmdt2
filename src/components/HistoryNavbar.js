@@ -3,7 +3,6 @@ import classNames from 'classnames/bind';
 import styles from './HistoryNavbar.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import productSlice from '../store/productSlice';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightLong } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

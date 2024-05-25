@@ -17,6 +17,7 @@ import _ from 'lodash';
 import useAxios from '../hook/useAxios';
 const cx = classNames.bind(styles);
 
+const apiUrl = process.env.REACT_APP_API_URL;
 const CartPage = () => {
 	// const [selectedProducts, setSelectedProducts] = useState([]);
 	const selectedProducts = useSelector(
@@ -68,7 +69,7 @@ const CartPage = () => {
 	const handlerRemove = async (id) => {
 		try {
 			const res = await apiRequest(
-				`http://localhost:8000/api/delete-product/${id}`,
+				`${apiUrl}/api/delete-product/${id}`,
 				'delete'
 			);
 			if (res.status === 200) {
@@ -79,11 +80,11 @@ const CartPage = () => {
 
 	const updateProductQuantity = async (idProduct, idUser, newQuantity) => {
 		try {
-			const res = await apiRequest(
-				'http://localhost:8000/api/update-product',
-				'post',
-				{ idUser, idProduct, newQuantity }
-			);
+			const res = await apiRequest(`${apiUrl}/api/update-product`, 'post', {
+				idUser,
+				idProduct,
+				newQuantity,
+			});
 			console.log('requesst');
 			if (res.status == 200) {
 				dispatch(productAction.cartItem(res.updateCart));

@@ -16,11 +16,7 @@ const ListProduct = () => {
 	const isShow = useSelector((state) => state.popup.isShowPopup);
 	const product = useSelector((state) => state.popup.selectProduct);
 	const products = useSelector((state) => state.product.products);
-	const [data, setData] = useState([]);
 	const dispatch = useDispatch();
-	const { loading, error, apiRequest } = useAxios();
-	// call api
-
 	// sử lý đóng modal
 	const handlerCloseModal = () => {
 		dispatch(popupAction.closeModal());

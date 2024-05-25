@@ -7,7 +7,7 @@ import { loginAction } from '../store/loginUserSlice';
 import useAxios from '../hook/useAxios';
 
 const cx = classNames.bind(styles);
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const SigninPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -21,11 +21,7 @@ const SigninPage = () => {
 	// sử lý input data và validate
 	const handlerSignIn = async () => {
 		try {
-			const res = await apiRequest(
-				'http://localhost:8000/api/login',
-				'post',
-				postData
-			);
+			const res = await apiRequest(`${apiUrl}/api/login`, 'post', postData);
 			console.log(res);
 			if (res.status == false) {
 				setErr(res.message);

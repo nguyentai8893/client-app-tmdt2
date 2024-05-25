@@ -3,8 +3,8 @@ import styles from './ClientChat.module.scss';
 import classNames from 'classnames/bind';
 import io from 'socket.io-client';
 import { useSelector } from 'react-redux';
-
-const socket = io('http://localhost:8000');
+const apiUrl = process.env.REACT_APP_API_URL;
+const socket = io(apiUrl);
 
 const cx = classNames.bind(styles);
 

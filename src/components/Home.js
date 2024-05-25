@@ -20,7 +20,8 @@ import { productAction } from '../store/productSlice';
 import io from 'socket.io-client';
 
 const cx = classNames.bind(styles);
-const socket = io('http://localhost:8000');
+const apiUrl = process.env.REACT_APP_API_URL;
+const socket = io(apiUrl);
 export const Home = () => {
 	const dispatch = useDispatch();
 	const [message, setMessage] = useState([]);
@@ -81,10 +82,7 @@ export const Home = () => {
 		if (isLogin) {
 			const fetchProduct = async () => {
 				try {
-					const res = await apiRequest(
-						'http://localhost:8000/api/products',
-						'get'
-					);
+					const res = await apiRequest(`${apiUrl}/api/products`, 'get');
 
 					if (res.status == 200) {
 						dispatch(productAction.setProduct(res.products));
@@ -96,7 +94,7 @@ export const Home = () => {
 			const getCart = async () => {
 				try {
 					const res = await apiRequest(
-						`http://localhost:8000/api/get-cart?userId=${user._id}`,
+						`${apiUrl}/api/get-cart?userId=${user._id}`,
 						'get'
 					);
 
@@ -110,10 +108,7 @@ export const Home = () => {
 
 			const getOrder = async () => {
 				try {
-					const res = await apiRequest(
-						'http://localhost:8000/api/get-order',
-						'get'
-					);
+					const res = await apiRequest(`${apiUrl}/api/get-order`, 'get');
 					if (res.status == 200) {
 						dispatch(productAction.order(res.order));
 					}
@@ -124,7 +119,7 @@ export const Home = () => {
 			getOrder();
 		}
 	}, [isLogin]);
-	console.log(messages);
+
 	return (
 		<>
 			<div className={cx('container')}>

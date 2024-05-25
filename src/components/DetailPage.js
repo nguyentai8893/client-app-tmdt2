@@ -11,6 +11,7 @@ import RelatedProducts from './RelatedProducts';
 import useAxios from '../hook/useAxios';
 import { productAction } from '../store/productSlice';
 const cx = classNames.bind(styles);
+const apiUrl = process.env.REACT_APP_API_URL;
 const DetailPage = () => {
 	const { id } = useParams();
 	const [inputValue, setInputValue] = useState(1);
@@ -42,11 +43,7 @@ const DetailPage = () => {
 			product,
 			quantity: inputValue,
 		};
-		const res = await apiRequest(
-			'http://localhost:8000/api/add-cart',
-			'post',
-			postData
-		);
+		const res = await apiRequest(`${apiUrl}/api/add-cart`, 'post', postData);
 		if (res.status == 200) {
 			dispatch(productAction.cartItem(res.userCart));
 		}

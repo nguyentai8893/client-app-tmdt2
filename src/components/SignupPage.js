@@ -5,7 +5,7 @@ import { Link, json, useNavigate } from 'react-router-dom';
 
 import useAxios from '../hook/useAxios';
 const cx = classNames.bind(styles);
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const SignupPage = () => {
 	const navigate = useNavigate();
 	const [data, setData] = useState(null);
@@ -24,8 +24,6 @@ const SignupPage = () => {
 		password: '',
 		phone: '',
 	});
-	let newUser = {};
-	const existingAccounts = JSON.parse(localStorage.getItem('userArr')) || [];
 
 	const handelChange = (e) => {
 		e.preventDefault();
@@ -37,11 +35,7 @@ const SignupPage = () => {
 	console.log(postData);
 	const handlerSignUP = async () => {
 		try {
-			const res = await apiRequest(
-				'http://localhost:8000/api/register',
-				'post',
-				postData
-			);
+			const res = await apiRequest(`${apiUrl}/api/register`, 'post', postData);
 
 			if (res && res.status == true) {
 				navigate('/sign-in');
@@ -52,9 +46,6 @@ const SignupPage = () => {
 		} catch (error) {
 			console.log(error);
 		}
-
-		// localStorage.setItem('userArr', JSON.stringify('user'));
-		// navigate('/sign-in');
 	};
 	if (loading) return <div>Loading...</div>;
 
