@@ -108,7 +108,10 @@ export const Home = () => {
 
 			const getOrder = async () => {
 				try {
-					const res = await apiRequest(`${apiUrl}/api/get-order`, 'get');
+					const res = await apiRequest(
+						`${apiUrl}/api/get-order?userId=${user._id}`,
+						'get'
+					);
 					if (res.status == 200) {
 						dispatch(productAction.order(res.order));
 					}
