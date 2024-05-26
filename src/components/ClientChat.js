@@ -15,7 +15,6 @@ const ClientChat = () => {
 	useEffect(() => {
 		socket.on('receiveMessage', (message) => {
 			setMessages((prevMessages) => [...prevMessages, message]);
-			console.log('mess', message);
 		});
 
 		return () => {
@@ -26,8 +25,6 @@ const ClientChat = () => {
 	const sendMessage = () => {
 		// socket.emit('joinRoom', 'general');
 		socket.emit('sendMessage', { message });
-		console.log('msgClient', message);
-
 		setMessage('');
 	};
 

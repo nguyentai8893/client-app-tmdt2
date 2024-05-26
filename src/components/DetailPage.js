@@ -19,7 +19,6 @@ const DetailPage = () => {
 	const currentCategory = useSelector((state) => state.product.currentCategory);
 	const user = JSON.parse(localStorage.getItem('user')) || [];
 	const { loading, error, apiRequest } = useAxios();
-	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
 	const product = products.find((product) => product._id === id);

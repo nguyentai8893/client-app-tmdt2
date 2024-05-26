@@ -18,7 +18,6 @@ const HistoryNavbar = () => {
 			);
 		}
 	}, [dispatch, order]);
-	console.log(order);
 	return (
 		<>
 			<div className={cx('container')}>

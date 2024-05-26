@@ -8,7 +8,6 @@ const DetailOrder = () => {
 	const orders = useSelector((state) => state.product.orderState);
 	const { orderId } = useParams();
 	const order = orders.filter((f) => f._id === orderId);
-	console.log(order);
 	return (
 		<>
 			<div className={cx('container')}>

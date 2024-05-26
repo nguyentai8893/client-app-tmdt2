@@ -32,7 +32,6 @@ const SignupPage = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
-	console.log(postData);
 	const handlerSignUP = async () => {
 		try {
 			const res = await apiRequest(`${apiUrl}/api/register`, 'post', postData);

@@ -29,7 +29,6 @@ const productSlice = createSlice({
 		},
 		decremenHandler(state, action) {
 			const product = action.payload.product;
-			console.log('accc', action.payload);
 			if (product) {
 				product.quantity -= 1;
 				state.productCart = product;

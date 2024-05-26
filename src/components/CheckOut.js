@@ -58,10 +58,8 @@ const CheckOut = () => {
 				const productInStock = products.find(
 					(item) => item._id == product.idProduct
 				);
-				console.log(productInStock);
 				return productInStock && product.quantity <= productInStock.quantity;
 			});
-			console.log(enoughStock, productcart);
 			// Nếu số lượng sản phẩm không đủ trong kho
 			if (!enoughStock) {
 				alert(
@@ -76,7 +74,6 @@ const CheckOut = () => {
 				'post',
 				orderData
 			);
-			console.log(res);
 			if (res.success == true) {
 				alert('Đặt hàng thành công !!');
 			}

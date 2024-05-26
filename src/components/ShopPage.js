@@ -17,7 +17,6 @@ const ShopPage = () => {
 	const dispatch = useDispatch();
 	const currentCategory = useSelector((state) => state.product.currentCategory);
 	const products = useSelector((state) => state.product.products);
-	console.log(products);
 	const handlerCategory = (category) => {
 		dispatch(productAction.setCategory(category));
 	};

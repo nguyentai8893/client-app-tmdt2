@@ -19,7 +19,6 @@ const cx = classNames.bind(styles);
 
 const apiUrl = process.env.REACT_APP_API_URL;
 const CartPage = () => {
-	// const [selectedProducts, setSelectedProducts] = useState([]);
 	const selectedProducts = useSelector(
 		(state) => state.product.selectedProducts
 	);
@@ -27,11 +26,9 @@ const CartPage = () => {
 	const [debounceTimer, setDebounceTimer] = useState(null);
 	const dispatch = useDispatch();
 	const cartStateRedux = useSelector((state) => state.product.cartState);
-	const products = useSelector((state) => state.product.products);
 	const { loading, error, apiRequest } = useAxios();
 	// Lấy dữ liệu từ local storage và chuyển thành mảng
 	const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-	console.log(products);
 	const cartState =
 		cartStateRedux.length > 0 ? cartStateRedux : storedCartItems;
 
@@ -85,7 +82,6 @@ const CartPage = () => {
 				idProduct,
 				newQuantity,
 			});
-			console.log('requesst');
 			if (res.status == 200) {
 				dispatch(productAction.cartItem(res.updateCart));
 			}
@@ -130,9 +126,6 @@ const CartPage = () => {
 							</div>
 
 							{cartState?.map((item, index) => {
-								{
-									console.log(item);
-								}
 								{
 									total = item.quantity * item.price;
 								}

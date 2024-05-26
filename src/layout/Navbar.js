@@ -38,12 +38,17 @@ const Navbar = () => {
 	}, [dispatch, products, productCart]);
 
 	const handlerLogout = () => {
-		document.cookie =
-			'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=yourdomain.com';
-		dispatch(loginAction.onLogout());
-		dispatch(productAction.ressetState());
-		setIsLoggedIn(false);
-		navigate('/sign-up');
+		const confirmLogout = window.confirm(
+			'Bạn có chắc chắn muốn đăng xuất không?'
+		);
+		if (confirmLogout) {
+			document.cookie =
+				'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=yourdomain.com';
+			dispatch(loginAction.onLogout());
+			dispatch(productAction.ressetState());
+			setIsLoggedIn(false);
+			navigate('/sign-up');
+		}
 	};
 
 	const classlogin = user ? classes.flexCartUser : classes.flexCart;

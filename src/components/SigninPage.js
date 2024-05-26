@@ -22,7 +22,6 @@ const SigninPage = () => {
 	const handlerSignIn = async () => {
 		try {
 			const res = await apiRequest(`${apiUrl}/api/login`, 'post', postData);
-			console.log(res);
 			if (res.status == false) {
 				setErr(res.message);
 			}
