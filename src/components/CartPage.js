@@ -121,7 +121,7 @@ const CartPage = () => {
 								<p>PRICE</p>
 								<p>QUANTITY</p>
 								<p>TOTAL</p>
-								<p>STORE</p>
+								{/* <p>STORE</p> */}
 								<p>REMOVE</p>
 							</div>
 
@@ -167,7 +167,7 @@ const CartPage = () => {
 												.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
 											VND
 										</p>
-										<p>{item.quantity}</p>
+										{/* <p>{item.quantity}</p> */}
 										<p className={cx('remove')}>
 											<FontAwesomeIcon
 												className={cx('icon')}
