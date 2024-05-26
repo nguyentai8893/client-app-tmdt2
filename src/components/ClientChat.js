@@ -23,7 +23,6 @@ const ClientChat = () => {
 	}, []);
 
 	const sendMessage = () => {
-		// socket.emit('joinRoom', 'general');
 		socket.emit('sendMessage', { message });
 		setMessage('');
 	};
