@@ -64,6 +64,9 @@ const DetailPage = () => {
 						<div className={cx('dflex')}>
 							CATEGORY: <p>{product?.category}</p>
 						</div>
+						<div className={cx('dflex')}>
+							STORE: <p>{product?.quantity}</p>
+						</div>
 						<div className={cx('container-btn')}>
 							<input type='text' placeholder='QUANTITY' />
 							<div className={cx('flex-icon')}>

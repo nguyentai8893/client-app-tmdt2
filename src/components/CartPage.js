@@ -49,6 +49,7 @@ const CartPage = () => {
 	const handlerIncremen = (id) => {
 		const product = cartStateRedux.find((item) => item.idProduct === id);
 		if (!product) return;
+
 		const newQuantity = product.quantity + 1;
 		dispatch(
 			productAction.updateCartItemQuantity({
