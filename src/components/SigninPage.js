@@ -18,7 +18,6 @@ const SigninPage = () => {
 	});
 
 	const { loading, error, apiRequest } = useAxios();
-	// sử lý input data và validate
 	const handlerSignIn = async () => {
 		try {
 			const res = await apiRequest(`${apiUrl}/api/login`, 'post', postData);

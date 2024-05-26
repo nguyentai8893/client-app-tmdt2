@@ -50,7 +50,6 @@ const CartPage = () => {
 		const product = cartStateRedux.find((item) => item.idProduct === id);
 		if (!product) return;
 		const newQuantity = product.quantity + 1;
-		// Update Redux state immediately
 		dispatch(
 			productAction.updateCartItemQuantity({
 				idProduct: product.idProduct,
