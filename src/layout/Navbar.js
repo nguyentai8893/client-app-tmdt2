@@ -127,17 +127,19 @@ const Navbar = () => {
 							</div>
 						</>
 					) : (
-						<NavLink
-							to='/sign-in'
-							className={({ isActive }) =>
-								isActive ? classes.active : classes.nav
-							}
-						>
-							<div className={classes.flexIcon}>
-								<FontAwesomeIcon icon={faUser} className={classes.icon} />
-								<p>Login</p>
-							</div>
-						</NavLink>
+						<>
+							<NavLink
+								to='/sign-in'
+								className={({ isActive }) =>
+									isActive ? classes.active : classes.nav
+								}
+							>
+								<div className={classes.flexIcon}>
+									<FontAwesomeIcon icon={faUser} className={classes.icon} />
+									<p>Login</p>
+								</div>
+							</NavLink>
+						</>
 					)}
 				</div>
 			</div>
