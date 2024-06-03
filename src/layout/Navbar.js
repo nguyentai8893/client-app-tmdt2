@@ -20,11 +20,11 @@ const Navbar = () => {
 
 	const [cartItem, setCartItems] = useState([]);
 	const user = useSelector((state) => state.auth.user);
-	if (!user) {
-		dispatch(
-			loginAction.onLogin(JSON.parse(localStorage.getItem('user')) || [])
-		);
-	}
+	// if (!user) {
+	// 	dispatch(
+	// 		loginAction.onLogin(JSON.parse(localStorage.getItem('user')) || [])
+	// 	);
+	// }
 
 	const navigate = useNavigate();
 	const [isLoggein, setIsLoggedIn] = useState(false);
