@@ -15,7 +15,7 @@ const Navbar = () => {
 	const dispatch = useDispatch();
 	const products = useSelector((state) => state.product.products);
 	const productCart = useSelector((state) => state.product.productCart);
-	const isLogin = useSelector((state) => state.auth.isLogin);
+	// const isLogin = useSelector((state) => state.auth.isLogin);
 	const cartState = useSelector((state) => state.product.cartState);
 
 	const [cartItem, setCartItems] = useState([]);
