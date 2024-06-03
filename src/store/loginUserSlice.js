@@ -16,6 +16,7 @@ const loginSlicce = createSlice({
 		},
 		onLogout(state) {
 			state.isLogin = false;
+			state.user = null;
 			localStorage.removeItem('user');
 			localStorage.removeItem('products');
 			localStorage.removeItem('cartItems');
