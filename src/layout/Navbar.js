@@ -30,7 +30,7 @@ const Navbar = () => {
 	const [isLoggein, setIsLoggedIn] = useState(false);
 	useEffect(() => {
 		const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-		setCartItems(storedCartItems);
+		// setCartItems(storedCartItems);
 		const user = JSON.parse(localStorage.getItem('user')) || [];
 		if (user) {
 			setUser(user);
