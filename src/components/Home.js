@@ -76,7 +76,7 @@ export const Home = () => {
 		dispatch(popupAction.showFormMess());
 	};
 
-	const { loading, error, apiRequest } = useAxios();
+	const { apiRequest } = useAxios();
 	const isLogin = useSelector((state) => state.auth.isLogin);
 	useEffect(() => {
 		if (isLogin) {
@@ -84,7 +84,7 @@ export const Home = () => {
 				try {
 					const res = await apiRequest(`${apiUrl}/api/products`, 'get');
 
-					if (res.status == 200) {
+					if (res.status === 200) {
 						dispatch(productAction.setProduct(res.products));
 					}
 				} catch (err) {
@@ -98,7 +98,7 @@ export const Home = () => {
 						'get'
 					);
 
-					if (res.status == 200) {
+					if (res.status === 200) {
 						dispatch(productAction.cartItem(res.cartItems));
 					}
 				} catch (error) {
@@ -112,7 +112,7 @@ export const Home = () => {
 						`${apiUrl}/api/get-order?userId=${user._id}`,
 						'get'
 					);
-					if (res.status == 200) {
+					if (res.status === 200) {
 						dispatch(productAction.order(res.order));
 					}
 				} catch (error) {}
@@ -173,7 +173,10 @@ export const Home = () => {
 							</div>
 							<div className={cx('content-footer')}>
 								<div className={cx('avatar')}>
-									<img src='/assets/images/42394608_2179729705686535_2045392550251986944_n (1).jpg' />
+									<img
+										src='/assets/images/42394608_2179729705686535_2045392550251986944_n (1).jpg'
+										alt='image'
+									/>
 								</div>
 
 								<input
@@ -201,6 +204,7 @@ export const Home = () => {
 					<img
 						className={cx(`${isShowFormMess ? 'active' : 'img'}`)}
 						src='/assets/images/tải xuống.png'
+						alt='image'
 					/>
 				</div>
 			</div>

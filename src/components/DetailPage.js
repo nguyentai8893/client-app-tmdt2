@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import classNames from 'classnames/bind';
@@ -18,7 +18,7 @@ const DetailPage = () => {
 	const products = useSelector((state) => state.product.products);
 	const currentCategory = useSelector((state) => state.product.currentCategory);
 	const user = JSON.parse(localStorage.getItem('user')) || [];
-	const { loading, error, apiRequest } = useAxios();
+	const { apiRequest } = useAxios();
 
 	const dispatch = useDispatch();
 	const product = products.find((product) => product._id === id);
@@ -52,7 +52,7 @@ const DetailPage = () => {
 			<div className={cx('container')}>
 				<div className={cx('container-product')}>
 					<div className={cx('image')}>
-						<img alt='product image' src={product?.img1} />
+						<img alt='product' src={product?.img1} />
 					</div>
 					<div className={cx('text')}>
 						<h4>{product?.name}</h4>

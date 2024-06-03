@@ -17,11 +17,11 @@ const SigninPage = () => {
 		password: '',
 	});
 
-	const { loading, error, apiRequest } = useAxios();
+	const { apiRequest } = useAxios();
 	const handlerSignIn = async () => {
 		try {
 			const res = await apiRequest(`${apiUrl}/api/login`, 'post', postData);
-			if (res.status == false) {
+			if (res.status === false) {
 				setErr(res.message);
 			}
 			if (res.user.role === 'guest') {

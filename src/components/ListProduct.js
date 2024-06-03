@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import Product from './Product';
 import ProductItem from './ProductItem';
 import classNames from 'classnames/bind';
 import styles from './ListProduct.module.scss';
@@ -9,7 +7,6 @@ import { popupAction } from '../store/showHideSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import useAxios from '../hook/useAxios';
 const cx = classNames.bind(styles);
 
 const ListProduct = () => {
@@ -38,7 +35,7 @@ const ListProduct = () => {
 					<>
 						<div className={cx('container-modal')}>
 							<div className={cx('content-left')}>
-								<img src={product.img1} alt='product image' />
+								<img src={product.img1} alt='product' />
 							</div>
 							<div className={cx('content-right')}>
 								<div className={cx('btn-close')}>

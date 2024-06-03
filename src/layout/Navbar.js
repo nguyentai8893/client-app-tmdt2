@@ -105,7 +105,7 @@ const Navbar = () => {
 					</NavLink>
 				</div>
 				<div className={classloginUser}>
-					{isLogin ? (
+					{user ? (
 						<>
 							<div className={classes.flexIcon}>
 								<FontAwesomeIcon icon={faUser} className={classes.icon} />

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './SignupPage.module.scss';
-import { Link, json, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import useAxios from '../hook/useAxios';
 const cx = classNames.bind(styles);
 const apiUrl = process.env.REACT_APP_API_URL;
 const SignupPage = () => {
 	const navigate = useNavigate();
-	const [data, setData] = useState(null);
 	const [err, setErr] = useState('');
 	const [postData, setPostData] = useState({
 		name: '',
@@ -16,14 +15,7 @@ const SignupPage = () => {
 		password: '',
 		phone: '',
 	});
-	const { loading, error, apiRequest } = useAxios();
-
-	const [formData, setFormData] = useState({
-		name: '',
-		email: '',
-		password: '',
-		phone: '',
-	});
+	const { loading, apiRequest } = useAxios();
 
 	const handelChange = (e) => {
 		e.preventDefault();
@@ -36,10 +28,10 @@ const SignupPage = () => {
 		try {
 			const res = await apiRequest(`${apiUrl}/api/register`, 'post', postData);
 
-			if (res && res.status == true) {
+			if (res && res.status === true) {
 				navigate('/sign-in');
 			}
-			if (res && res.status == false) {
+			if (res && res.status === false) {
 				setErr(res.message);
 			}
 		} catch (error) {

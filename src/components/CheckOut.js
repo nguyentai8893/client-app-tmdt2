@@ -1,13 +1,12 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './CheckOut.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import useAxios from '../hook/useAxios';
 
 const cx = classNames.bind(styles);
 const apiUrl = process.env.REACT_APP_API_URL;
 const CheckOut = () => {
-	const productcart = useSelector((state) => state.product.productCart);
 	const products = useSelector((state) => state.product.products);
 	const cartState = useSelector((state) => state.product.cartState);
 	const checked = useSelector((state) => state.product.selectedProducts);
@@ -56,7 +55,7 @@ const CheckOut = () => {
 			// Kiểm tra số lượng sản phẩm trong kho
 			const enoughStock = selectedProducts.every((product) => {
 				const productInStock = products.find(
-					(item) => item._id == product.idProduct
+					(item) => item._id === product.idProduct
 				);
 				return productInStock && product.quantity <= productInStock.quantity;
 			});
@@ -74,7 +73,7 @@ const CheckOut = () => {
 				'post',
 				orderData
 			);
-			if (res.success == true) {
+			if (res.success === true) {
 				alert('Đặt hàng thành công !!');
 			}
 		} catch (error) {

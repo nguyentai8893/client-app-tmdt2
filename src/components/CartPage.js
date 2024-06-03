@@ -13,7 +13,6 @@ import {
 	faTrashCan,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
 import useAxios from '../hook/useAxios';
 const cx = classNames.bind(styles);
 
@@ -26,7 +25,7 @@ const CartPage = () => {
 	const [debounceTimer, setDebounceTimer] = useState(null);
 	const dispatch = useDispatch();
 	const cartStateRedux = useSelector((state) => state.product.cartState);
-	const { loading, error, apiRequest } = useAxios();
+	const { apiRequest } = useAxios();
 	// Lấy dữ liệu từ local storage và chuyển thành mảng
 	const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 	const cartState =
@@ -82,7 +81,7 @@ const CartPage = () => {
 				idProduct,
 				newQuantity,
 			});
-			if (res.status == 200) {
+			if (res.status === 200) {
 				dispatch(productAction.cartItem(res.updateCart));
 			}
 		} catch (error) {
@@ -140,7 +139,7 @@ const CartPage = () => {
 											checked={selectedProducts.includes(item.idProduct)}
 											onChange={() => handleCheck(item.idProduct)}
 										/>
-										<img src={item.image} />
+										<img src={item.image} alt='image' />
 										<p className={cx('name')}>{item.name}</p>
 										<p className={cx('price')}>
 											{item.price
