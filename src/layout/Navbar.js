@@ -17,9 +17,9 @@ const Navbar = () => {
 	const productCart = useSelector((state) => state.product.productCart);
 	// const isLogin = useSelector((state) => state.auth.isLogin);
 	const cartState = useSelector((state) => state.product.cartState);
-
+	const [user, setUser] = useState(null);
 	const [cartItem, setCartItems] = useState([]);
-	const user = useSelector((state) => state.auth.user);
+	// const user = useSelector((state) => state.auth.user);
 	// if (!user) {
 	// 	dispatch(
 	// 		loginAction.onLogin(JSON.parse(localStorage.getItem('user')) || [])
@@ -27,13 +27,13 @@ const Navbar = () => {
 	// }
 
 	const navigate = useNavigate();
-	const [isLoggein, setIsLoggedIn] = useState(false);
+	// const [isLoggein, setIsLoggedIn] = useState(false);
 	useEffect(() => {
 		const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 		setCartItems(storedCartItems);
 		const user = JSON.parse(localStorage.getItem('user')) || [];
 		if (user) {
-			setIsLoggedIn(true);
+			setUser(user);
 		}
 	}, [dispatch, products, productCart]);
 
@@ -46,7 +46,7 @@ const Navbar = () => {
 				'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=yourdomain.com';
 			dispatch(loginAction.onLogout());
 			dispatch(productAction.ressetState());
-			setIsLoggedIn(false);
+			// setIsLoggedIn(false);
 			navigate('/sign-up');
 		}
 	};
