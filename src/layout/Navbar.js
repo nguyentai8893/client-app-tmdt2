@@ -27,7 +27,7 @@ const Navbar = () => {
 	// }
 
 	const navigate = useNavigate();
-	const [isLoggein, setIsLoggedIn] = useState(false);
+	// const [isLoggein, setIsLoggedIn] = useState(false);
 	useEffect(() => {
 		const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 		// setCartItems(storedCartItems);
