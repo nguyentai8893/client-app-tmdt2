@@ -10,7 +10,6 @@ const RelatedProducts = ({ item }) => {
 				<img src={item?.img1} alt='image product' />
 				<p className={cx('name')}>{item?.name}</p>
 				<p className={cx('price')}>
-					{/* sử lý chuyển price về dạng string  và thêm . */}
 					{item?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} VND
 				</p>
 			</div>
