@@ -94,7 +94,7 @@ const CartPage = () => {
 		// Set timeout mới
 		const timer = setTimeout(() => {
 			updateProductQuantity(idProduct, idUser, newQuantity);
-		}, 10000); // Thời gian debounce là 10 giây
+		}, 10000);
 		setDebounceTimer(timer);
 	};
 	const handleCheck = (id) => {
