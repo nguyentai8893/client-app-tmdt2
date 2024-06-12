@@ -120,7 +120,6 @@ const CartPage = () => {
 								<p>PRICE</p>
 								<p>QUANTITY</p>
 								<p>TOTAL</p>
-								{/* <p>STORE</p> */}
 								<p>REMOVE</p>
 							</div>
 
