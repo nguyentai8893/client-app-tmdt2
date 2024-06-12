@@ -105,7 +105,7 @@ const Navbar = () => {
 					</NavLink>
 				</div>
 				<div className={classloginUser}>
-					{user.length ? (
+					{user ? (
 						<>
 							<div className={classes.flexIcon}>
 								<FontAwesomeIcon icon={faUser} className={classes.icon} />
